@@ -1,0 +1,22 @@
+{
+  "name": "test-keepalive-https-sni",
+  "version": "1.0.0",
+  "description": "Test Keep alive and https TLS SNI",
+  "main": "index.js",
+  "scripts": {
+    "test": "node fetch-got",
+    "server": "node server/fastify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5",
+    "agentkeepalive": "^4.1.4",
+    "electrode-keepalive": "^0.3.8",
+    "fastify": "^3.20.2",
+    "got": "^11.8.2",
+    "hapi": "16",
+    "xaa": "^1.7.1"
+  }
+}
