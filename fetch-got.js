@@ -23,6 +23,7 @@ interceptDns();
 let kaAgent;
 
 const eka = new ElectrodeKeepAlive({
+  // scheduling: "fifo",
   expiry: 500000,
   https: true,
   rejectUnauthorized: false
@@ -91,15 +92,21 @@ setInterval(() => {
 
 const xaa = require("xaa");
 
-async function massTest() {
+async function massTest(count = 2000) {
   const run = Array.from({ length: 50 }, (a, b) => b);
-  for (let i = 0; i < 2000; i++) {
+  for (let i = 0; i < count; i++) {
     await xaa.map(run, () => testTlsSni(), { concurrency: run.length });
   }
 }
 
-massTest().then(async () => {
-  console.log("waiting 2 min");
-  await delay(2 * 60 * 1000);
-  return massTest();
+massTest(100).then(async () => {
+  // console.log("waiting 2 min");
+  // await delay(2 * 60 * 1000);
+  // console.log("starting mass test again");
+  // await massTest(100);
+  console.log("start trickling test");
+  for (let i = 0; i < 3 * 60 * 100; i++) {
+    await testTlsSni();
+    await delay(150);
+  }
 });
