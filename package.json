@@ -13,7 +13,7 @@
   "dependencies": {
     "@hapi/hapi": "^20.1.5",
     "agentkeepalive": "^4.1.4",
-    "electrode-keepalive": "^0.3.8",
+    "electrode-keepalive": "^0.3.10",
     "fastify": "^3.20.2",
     "got": "^11.8.2",
     "hapi": "16",
